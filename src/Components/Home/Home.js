@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ContextTheme = () => {
+const Home = () => {
     return (
         <div>
-            
+            <h1>This is home page</h1>
         </div>
     );
 };
 
-export default ContextTheme;
+export default Home;

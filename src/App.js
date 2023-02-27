@@ -1,13 +1,25 @@
+import React, { createContext, useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import './App.css';
 import { route } from './Routes/Route/Route';
-function App() {
-  return (
-    <div className="App">
-      <RouterProvider router={route}>
 
-      </RouterProvider>
-    </div>
+export const ThemeContext = createContext(null);
+
+function App() {
+  const [theme, setTheme] = useState("dark");
+
+  const toggleTheme =()=>{
+    return setTheme((curr) => (curr === "light"? "dark": "light"));
+  }
+  const themeInfo = {theme, toggleTheme}
+  return (
+    <ThemeContext.Provider value={themeInfo}>
+      <div className="App" id={theme}>
+        <RouterProvider router={route}>
+
+        </RouterProvider>
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
