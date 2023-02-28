@@ -9,7 +9,7 @@ import logo from './../Images/ppp-removebg-preview.png';
 import './Header.css'
 
 const Header = () => {
-  const {theme, toggleTheme} = useContext(ThemeContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -24,18 +24,19 @@ const Header = () => {
             <Nav.Link href="#pricing">Blog</Nav.Link>
           </Nav>
           <Nav className='handleDarkMode'>
-         
-              <label htmlFor="">{theme === "light" ? "Light Mode" : "Dark Mode"}</label>
-              <ReactSwitch className='switch' onChange={toggleTheme} checked={theme === "dark"}></ReactSwitch>
-  
+
+            <label htmlFor="">{theme === "light" ? "Light Mode" : "Dark Mode"}</label>
+            <ReactSwitch className='switch' onChange={toggleTheme} checked={theme === "dark"}></ReactSwitch>
+
             <Nav.Link href="#deets">More deets</Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
-              Dank memes
+              <Link className='p-4' to='/login'>login</Link>
+              <Link to='/signup'>sign up</Link>
             </Nav.Link>
           </Nav>
           <Nav>
 
-            
+
 
           </Nav>
         </Navbar.Collapse>
