@@ -29,7 +29,7 @@ const Header = () => {
             <ReactSwitch className='switch' onChange={toggleTheme} checked={theme === "dark"}></ReactSwitch>
 
             <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+            <Nav.Link  href="#memes">
               <Link className='p-4' to='/login'>login</Link>
               <Link to='/signup'>sign up</Link>
             </Nav.Link>

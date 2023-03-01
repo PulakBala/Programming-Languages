@@ -15,7 +15,7 @@ function App() {
 
   return (
     <ThemeContext.Provider value={themeInfo}>
-      <div className="App" id={theme}>
+      <div className="App" id={theme} style={{height:"auto"}}>
         <RouterProvider router={route}>
 
         </RouterProvider>
