@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import ReactSwitch from 'react-switch';
 import { ThemeContext } from '../App';
@@ -55,7 +56,21 @@ const Header = () => {
              }
              </>
             </Nav.Link>
-            <Nav.Link href="#deets">More deets</Nav.Link>
+            <Nav.Link href="#deets">
+             {
+              user?.photoURL ?
+              <>
+              <Image
+              style={{height: '30px'}} roundedCircle
+              src={user.photoURL}
+              ></Image>
+              </>
+              :
+              <>
+                <FaUser></FaUser>
+              </>
+             }
+            </Nav.Link>
           </Nav>
           <Nav>
 
