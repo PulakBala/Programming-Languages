@@ -6,7 +6,7 @@ import { AuthContext } from '../../../UserContext/UserContext';
 
 const SignUp = () => {
     const [error, setError] = useState('');
-    const {createUser, providerLogin} = useContext(AuthContext);
+    const {createUser, providerLogin, updateUserProfile} = useContext(AuthContext);
     const nevigate = useNavigate();
 
     const googleProviderLogin = new GoogleAuthProvider();
@@ -28,6 +28,7 @@ const SignUp = () => {
         const form = event.target;
 
         const name = form.name.value;
+        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
 
@@ -40,8 +41,18 @@ const SignUp = () => {
                 form.reset();
                 setError();
                 nevigate('/');
+                handleUpdateUserProfile(name, photoURL)
             })
             .catch(e => setError(e.message));
+    }
+    const handleUpdateUserProfile =(name, photoURL)=>{
+        const profile ={
+            displayName:name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+        .then(()=>{})
+        .catch(error => console.error(error));
     }
 
     return (
@@ -51,6 +62,10 @@ const SignUp = () => {
                     <div>
                         <label htmlFor="">Name</label><br />
                         <input name='name' type="text" placeholder='Write your name' required />
+                    </div>
+                    <div>
+                        <label htmlFor="">PhotoURL</label><br />
+                        <input name='photoURL' type="text" placeholder='PhotoURL'  />
                     </div>
                     <div>
                         <label htmlFor="">Email</label> <br />
