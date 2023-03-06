@@ -9,6 +9,7 @@ import ReactSwitch from 'react-switch';
 import { ThemeContext } from '../App';
 import { AuthContext } from '../UserContext/UserContext';
 import logo from './../Images/ppp-removebg-preview.png';
+import Tippy from '@tippyjs/react';
 import './Header.css'
 
 const Header = () => {
@@ -19,6 +20,10 @@ const Header = () => {
     logOut()
     .then(()=>{})
     .catch(error=>console.error(error));
+  }
+
+  const handleMouseEnter = () =>{
+    console.log(user.displayName);
   }
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -60,10 +65,13 @@ const Header = () => {
              {
               user?.photoURL ?
               <>
-              <Image
+             <Tippy className='mt-4' content={user?.displayName}>
+             <Image
               style={{height: '30px'}} roundedCircle
               src={user.photoURL}
+              onMouseEnter={handleMouseEnter}
               ></Image>
+             </Tippy>
               </>
               :
               <>
