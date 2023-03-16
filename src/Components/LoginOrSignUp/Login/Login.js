@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../UserContext/UserContext";
 const Login = () => {
   const [error, setError] = useState("");
@@ -50,12 +50,14 @@ const Login = () => {
         />
       </div>
 
+      <div>
+        <p>create a account<Link to="/signup"> Sign-Up</Link></p>
+      </div>
+
       <Button className="btn btn-primary mt-4" type="submit">
         Login
       </Button>
       <p className="text-danger">{error}</p>
-     
-      
     </Form>
   );
 };

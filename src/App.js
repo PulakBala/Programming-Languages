@@ -6,7 +6,7 @@ import { route } from './Routes/Route/Route';
 export const ThemeContext = createContext(null);
 
 function App() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState(false);
 
   const toggleTheme =()=>{
     return setTheme((curr) => (curr === "light"? "dark": "light"));

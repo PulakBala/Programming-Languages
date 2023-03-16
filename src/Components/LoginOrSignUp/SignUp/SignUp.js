@@ -1,7 +1,7 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../UserContext/UserContext';
 
 const SignUp = () => {
@@ -10,6 +10,7 @@ const SignUp = () => {
     const nevigate = useNavigate();
 
     const googleProviderLogin = new GoogleAuthProvider();
+    const githubProviderLogin = new GithubAuthProvider();
 
     const handleGoogleLogin = ()=>{
         providerLogin(googleProviderLogin)
@@ -20,6 +21,15 @@ const SignUp = () => {
         .catch(error=>{
             console.log(error);
         })
+    }
+
+    const handleGithubLogin= () =>{
+        providerLogin(githubProviderLogin)
+        .then(result =>{
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(error => console.error(error));
     }
 
     const handleSubmit = event => {
@@ -77,7 +87,13 @@ const SignUp = () => {
                         <input name='password' type="password" placeholder='Enter your email' required />
                     </div>
 
+                    <div>
+                        <p><small>already have an account </small><Link to='/login'>Login</Link></p>
+                    </div>
+
                     <button onClick={handleGoogleLogin} className='btn btn-light border mt-4'> <FaGoogle /> google sign-up</button> <br />
+
+                    <button onClick={handleGithubLogin} className='btn btn-light border mt-4'> <FaGoogle /> github sign-up</button> <br />
 
                     <button className='btn btn-primary mt-4'>
 
