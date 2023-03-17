@@ -2,6 +2,8 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import Category from '../Category/Category';
+import CourseCard from '../CourseCard/CourseCard';
+import './CorseLayOut.css'
 
 
 const CourseLayOut = () => {
@@ -21,9 +23,21 @@ const CourseLayOut = () => {
                         ></Category>)
                        }
                     </Col>
-                    <Col className='border' lg="9">
-                        <h2>right side content</h2>
+
+
+                    <Col  lg="9">
+                    <h2 className='bg-secondary'>Course About</h2>
+                      <div className='grid-container'>
+                        {
+                            data.map(da =><CourseCard
+                            key={da.id}
+                            courseCard={da}
+                            ></CourseCard>)
+                        }
+                      </div>
                     </Col>
+
+
                 </Row>
 
            </Container>
