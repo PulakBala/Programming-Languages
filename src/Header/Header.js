@@ -26,7 +26,7 @@ const Header = () => {
     console.log(user.displayName);
   }
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar className='sticky-top' collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar></Navbar>
         {/* <img src={logo} width={30} height={30} /> */}
