@@ -13,12 +13,14 @@ function App() {
   }
   const themeInfo = {theme, toggleTheme}
 
+
   return (
     <ThemeContext.Provider value={themeInfo}>
       <div className="App" id={theme} style={{height:"auto"}}>
         <RouterProvider router={route}>
 
         </RouterProvider>
+
       </div>
     </ThemeContext.Provider>
   );

@@ -1,23 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
+
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import CourseModal from "../CourseModal/CourseModal";
+
 import "./CourseCard.css";
 
-const CourseCard = ({ courseCard }) => {
-  const { name } = courseCard;
+const CourseCard = ({ cors }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const { picture, name } = cors;
+  const info = {cors};
+  console.log(info);
   return (
     <div>
-      <Card  style={{ width: "24rem" }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Title>{name}</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-      </Card>
+      {modalOpen && <CourseModal setOpenModal={setModalOpen} value={info}/>}
+      <div className="shadow rounded-5" style={{ width: "20rem" }}>
+      <h2>{name}</h2>
+        <Card.Img
+          className="m-auto shadow mt-2 rounded-5"
+          style={{ height: "300px", width: "300px" }}
+          variant="top"
+          src={picture}
+          onClick={() => {
+            setModalOpen(true);
+          }}
+        />
+        
+        <Button
+          onClick={() => {
+            setModalOpen(true);
+          }}
+          variant="primary"
+        >
+          Course Details
+        </Button>
+      </div>
     </div>
   );
 };

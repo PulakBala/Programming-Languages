@@ -1,0 +1,13 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 50px;
+    justify-content: center;
+    margin-top: 40px;
+}
+/* .category-navbar{
+    background-color: rgb(250, 244, 244);
+    position: fixed;
+    width: 240px;
+    height: 100%;
+} */

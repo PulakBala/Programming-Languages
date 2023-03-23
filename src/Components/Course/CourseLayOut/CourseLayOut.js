@@ -1,50 +1,37 @@
-import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
-import Category from '../Category/Category';
-import CourseCard from '../CourseCard/CourseCard';
-import './CorseLayOut.css'
+import React from "react";
+import { Card } from "react-bootstrap";
 
+import { useLoaderData } from "react-router-dom";
+// import CourseDetails from "../../CourseDetails/CourseDetails";
+// import Category from "../Category/Category";
+
+import "./CorseLayOut.css";
 
 const CourseLayOut = () => {
-    const data = useLoaderData();
-    return (
-
-            <div>
-            <h1>This is Courses file {data.length}</h1>
-           <Container>
-           <Row  className=''>
-                    <Col className='border ' lg="3">
-                        <h2 className='bg-secondary w-full'>Course Name</h2>
-                       {
-                        data.map(da => <Category
-                        key={da.id}
-                        category={da}
-                        ></Category>)
-                       }
-                    </Col>
-
-
-                    <Col  lg="9">
-                    <h2 className='bg-secondary'>Course About</h2>
-                      <div className='grid-container'>
-                        {
-                            data.map(da =><CourseCard
-                            key={da.id}
-                            courseCard={da}
-                            ></CourseCard>)
-                        }
-                      </div>
-                    </Col>
-
-
-                </Row>
-
-           </Container>
-
-        </div>
-
-    );
+  const data = useLoaderData();
+  const {name, picture,details}= data;
+  console.log(data);
+  
+  return (
+    <Card>
+            <Card.Img variant="top" src={picture} />
+            <Card.Body>
+                <Card.Title>{name}</Card.Title>
+                <Card.Text>
+                    {details}
+                </Card.Text>
+            </Card.Body>
+        </Card>
+    // <div>
+    //   <h2>length:{data.length}</h2>
+    //   {
+    //     data.map(da=><CourseDetails
+    //       key={da.id}
+    //       da={da}
+    //     ></CourseDetails>)
+    //   }
+    // </div>
+  );
 };
 
 export default CourseLayOut;
