@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../UserContext/UserContext';
 
 const CourseModal = ({setOpenModal, value}) => {
+const {user} = useContext(AuthContext);
 
     const {name,picture} = value.cors;
 
-    console.log(name);
+    console.log(user);
     return (
         <>
         <div className="modal-wrapper" onClick={()=>{setOpenModal(false)}}></div>
@@ -39,7 +42,12 @@ const CourseModal = ({setOpenModal, value}) => {
           >
             Cancel
           </button>
-          <button>Continue</button>
+          {
+            user?.uid ?
+            <button><Link to='/category/:id'>Continue</Link></button>
+            :
+            <button><Link to='/login'>Continue</Link></button>
+          }
         </div>
         </div>
       </>

@@ -11,7 +11,6 @@ const CourseCard = ({ cors }) => {
 
   const { picture, name } = cors;
   const info = {cors};
-  console.log(info);
   return (
     <div>
       {modalOpen && <CourseModal setOpenModal={setModalOpen} value={info}/>}

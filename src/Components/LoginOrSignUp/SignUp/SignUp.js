@@ -96,10 +96,7 @@ const SignUp = () => {
                     <button onClick={handleGithubLogin} className='btn btn-light border mt-4'> <FaGoogle /> github sign-up</button> <br />
 
                     <button className='btn btn-primary mt-4'>
-
-
                         Sign Up
-
                     </button>
                     <p className="text-danger">{error}</p>
                 </form>

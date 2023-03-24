@@ -6,6 +6,7 @@ import Home from '../../Components/Home/Home';
 import Login from '../../Components/LoginOrSignUp/Login/Login';
 import SignUp from '../../Components/LoginOrSignUp/SignUp/SignUp';
 import Main from '../../Layout/Main';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 export const route = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ export const route = createBrowserRouter([
 
             {
                 path: '/category/:id',
-                element: <CourseLayOut></CourseLayOut>,
+                element: <PrivateRoute><CourseLayOut></CourseLayOut></PrivateRoute>,
                 loader:({params})=> fetch(`https://programming-languages-server-pulakbala.vercel.app/courseDetails/${params.id}`)
 
             },
