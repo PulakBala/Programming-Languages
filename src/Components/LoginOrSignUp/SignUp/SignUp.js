@@ -41,8 +41,13 @@ const SignUp = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
+        const confirmPassword = form.confirmPassword.value;
 
-        console.log(name, email, password);
+        console.log(name, email, password, confirmPassword);
+        if(password !== confirmPassword){
+            setError('Password do not match')
+            return;
+        }
 
         createUser(email, password)
             .then(result => {
@@ -84,7 +89,12 @@ const SignUp = () => {
 
                     <div>
                         <label htmlFor="">Password</label><br />
-                        <input name='password' type="password" placeholder='Enter your email' required />
+                        <input name='password' type="password" placeholder='password' required />
+                    </div>
+
+                    <div>
+                        <label htmlFor="">Confirm password</label><br />
+                        <input name='confirmPassword' type="password" placeholder='confirm password' required />
                     </div>
 
                     <div>

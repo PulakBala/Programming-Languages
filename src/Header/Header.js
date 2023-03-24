@@ -37,7 +37,7 @@ const Header = () => {
           <Nav className="me-auto">
             <Nav.Link href="#features"><Link to='/'>Courses</Link></Nav.Link>
             <Nav.Link href="#pricing"><Link to='/faq'>FAQ</Link></Nav.Link>
-            <Nav.Link href="#pricing">Blog</Nav.Link>
+            <Nav.Link href="#pricing"><Link to='/blog'>Blog</Link></Nav.Link>
           </Nav>
           <Nav className='handleDarkMode'>
 

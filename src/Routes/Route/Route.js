@@ -1,5 +1,6 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+import Blog from '../../Components/Blog/Blog';
 import CourseLayOut from '../../Components/Course/CourseLayOut/CourseLayOut';
 import Home from '../../Components/Home/Home';
 
@@ -24,6 +25,10 @@ export const route = createBrowserRouter([
                 element: <PrivateRoute><CourseLayOut></CourseLayOut></PrivateRoute>,
                 loader:({params})=> fetch(`https://programming-languages-server-pulakbala.vercel.app/courseDetails/${params.id}`)
 
+            },
+            {
+                path:'/blog',
+                element: <Blog></Blog>
             },
             {
                 path: '/login',
