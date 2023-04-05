@@ -29,7 +29,7 @@ const Header = () => {
     <Navbar className='sticky-top' collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar></Navbar>
-        {/* <img src={logo} width={30} height={30} /> */}
+       
         <img src={logo} width={30} alt=''></img>
         <Navbar.Brand className='mx-2' href="#home">Programming-Languages</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

@@ -11,3 +11,10 @@
     width: 240px;
     height: 100%;
 } */
+
+@media screen and (max-width: 768px) {
+    .grid-container{
+        display: grid;
+        grid-template-columns: auto;
+    }
+}

@@ -2,3 +2,9 @@
     position: sticky;
     top: 0;
 }
+@media screen and(max-width: 768px) {
+    .leftSide-navbar{
+        position: sticky;
+        top: 0;
+    }
+}
